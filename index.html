@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="PHP-Http-Class : Http class use for sending GET/ POST/ PUT request" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>PHP-Http-Class</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ptcong/php-http-class">View on GitHub</a>
+
+          <h1 id="project_title">PHP-Http-Class</h1>
+          <h2 id="project_tagline">Http class use for sending GET/ POST/ PUT request</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ptcong/php-http-class/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ptcong/php-http-class/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="php-http-class" class="anchor" href="#php-http-class"><span class="octicon octicon-link"></span></a>PHP-Http-Class</h1>
+
+<p>This project help for sending GET/POST/PUT request easier, being used to crawler.</p>
+
+<p>This use fsockopen, curl to execute request.</p>
+
+<p><strong>Note</strong>: <em>fsockopen</em> is faster also default of the class is use <em>fsockopen</em></p>
+
+<ul>
+<li>Author: Phan Thanh Cong </li>
+<li>Contact: <a href="mailto:ptcong90@gmail.com">ptcong90@gmail.com</a>
+</li>
+<li>Copyright: (c) 2011 chiplove.9xpro</li>
+<li>Version: 2.4</li>
+</ul><h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<h3>
+<a name="read-web-content" class="anchor" href="#read-web-content"><span class="octicon octicon-link"></span></a>Read web content:</h3>
+
+<pre><code>$http = new \ChipVN\Http();
+$http-&gt;setTarget("http://www.yourwebsite.com/");
+$http-&gt;execute();
+print_r($http-&gt;getResponseHeaders());
+echo $http-&gt;getResponseText();
+</code></pre>
+
+<h3>
+<a name="submit-form" class="anchor" href="#submit-form"><span class="octicon octicon-link"></span></a>Submit form:</h3>
+
+<pre><code>$http = new \ChipVN\Http();
+$http-&gt;setTarget("http://www.yourwebsite.com/");
+$http-&gt;setParam(array("fieldname"=&gt; $value)); 
+$http-&gt;setMethod('POST');
+$http-&gt;execute();
+echo $http-&gt;getResponseText();
+</code></pre>
+
+<h3>
+<a name="using-proxy-only-usecurl" class="anchor" href="#using-proxy-only-usecurl"><span class="octicon octicon-link"></span></a>Using Proxy: only useCurl</h3>
+
+<pre><code>$http = new \ChipVN\Http();
+    $http-&gt;useCurl(true);
+$http-&gt;setTarget("http://www.yourwebsite.com/");
+$http-&gt;setProxy('proxy_ip:proxy_port');
+$http-&gt;execute();
+echo $http-&gt;getResponseText();
+</code></pre>
+
+<h3>
+<a name="upload-file" class="anchor" href="#upload-file"><span class="octicon octicon-link"></span></a>Upload file:</h3>
+
+<pre><code>$filePath = getcwd().'/abc.jpg';
+$http = new \ChipVN\Http();
+$http-&gt;setTarget("http://www.yourwebsite.com/");
+$http-&gt;setSubmitMultipart();
+$http-&gt;setParam(array('fileupload'=&gt;"@$filePath"));
+$http-&gt;execute();
+print_r($http-&gt;getResponseHeaders());
+echo $http-&gt;getResponseText();
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">PHP-Http-Class maintained by <a href="https://github.com/ptcong">ptcong</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
